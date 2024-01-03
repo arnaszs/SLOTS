@@ -35,6 +35,15 @@ def get_slot_machine_outcome(rows, cols, symbols):
     return columns
 
 
+def print_slot_machine(columns):
+    for row in range(len(columns[0])):
+        for i, column in enumerate(columns):
+            if i != len(columns) - 1:
+                print(column[row], "|")
+            else:
+                print(column[row])
+
+
 # Deposit functionality
 def deposit ():
     while True:
@@ -64,6 +73,7 @@ def get_number_of_lines():
             print("Please enter a number")
 
     return lines
+
 
 # Retrieves information about what amount is being bet
 def get_bet():
@@ -95,6 +105,9 @@ def main():
 
 
     print(f"You are betting ${bet} on {lines} lines. Total bet is equal to : ${total_bet}")
+
+    slots = get_slot_machine_outcome(ROWS, COLS, symbol_count)
+    print_slot_machine(slots)
 
 
 main()
